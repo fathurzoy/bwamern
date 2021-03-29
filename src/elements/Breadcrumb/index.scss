@@ -1,0 +1,23 @@
+// // styleling di scss _breadcrumb scss
+
+// // _breadcrumb
+// // background-color: $breadcrumb-bg;
+
+// .breadcrumb-item {
+//   a { //tambah
+//     color: $gray-400;
+//   }
+//   display: flex;
+
+//   &::before {
+//     display: inline-block; // Suppress underlining of the separator in modern browsers
+//     padding-right: $breadcrumb-item-padding;
+//     color: $gray-400; //ubah
+//     content: escape-svg($breadcrumb-divider);
+//   }
+// &.active {
+//   color: $gray-900; //ubah 
+// }
+
+// //_variables
+// $breadcrumb-item-padding: 1.5rem !default; //ubah

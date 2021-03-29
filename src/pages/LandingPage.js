@@ -1,21 +1,26 @@
 import React, { Component } from "react";
 
-import Header from "elements/parts/Header";
-import landingPage from "elements/json/landingPage.json";
-import Hero from "elements/parts/Hero";
+import Header from "parts/Header";
+import landingPage from "json/landingPage.json";
+import Hero from "parts/Hero";
 
-import MostPicked from "elements/parts/MostPicked";
-import Categories from "elements/parts/Categories";
-import Testimony from "elements/parts/Testimony";
-import Footer from "elements/parts/Footer";
+import MostPicked from "parts/MostPicked";
+import Categories from "parts/Categories";
+import Testimony from "parts/Testimony";
+import Footer from "parts/Footer";
 
 export default class LandingPage extends Component {
   //constructor akan berjalan paling pertama ketika kita meruning class
-  constructor(props){
+  constructor(props) {
     super(props);
     this.refMostPicked = React.createRef();
   }
 
+  componentDidMount() {
+    //kalo komponent baru di load Staycation | Home //windownya viewportnya arah paling atas
+    window.title = "Staycation | Home";
+    window.scrollTo(0, 0);
+  }
 
   render() {
     // console.log(this.props)
@@ -25,8 +30,8 @@ export default class LandingPage extends Component {
         <Header {...this.props}></Header>
 
         <Hero refMostPicked={this.refMostPicked} data={landingPage.hero} />
-        <MostPicked  refMostPicked={this.refMostPicked} data={landingPage.mostPicked} />
-        <Categories data={landingPage.categories}/>
+        <MostPicked refMostPicked={this.refMostPicked} data={landingPage.mostPicked} />
+        <Categories data={landingPage.categories} />
         <Testimony data={landingPage.testimonial} />
         <Footer />
       </>
