@@ -7,6 +7,8 @@ import DetailsPage from "pages/DetailsPage";
 import Checkout from "pages/Checkout";
 import Example from "pages/Example";
 
+import { ToastContainer } from "react-toastify";
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +20,8 @@ function App() {
           <Route path="/" component={LandingPage} />
         </Switch>
       </Router>
+
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

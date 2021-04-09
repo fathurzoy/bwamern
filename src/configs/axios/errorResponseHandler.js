@@ -1,3 +1,6 @@
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 function errorResponseHandler(error) {
   if (error) {
     let message;
@@ -7,7 +10,9 @@ function errorResponseHandler(error) {
 
       console.log(message);
 
-      return Premise.reject(error);
+      toast(message);
+
+      return Promise.reject(error);
     }
   }
 }
