@@ -32,7 +32,7 @@ class LandingPage extends Component {
     // console.log(this.props)
 
     const { page } = this.props;
-    console.log(page);
+    // console.log(page);
 
     if (!page.hasOwnProperty("landingPage")) return null;
 

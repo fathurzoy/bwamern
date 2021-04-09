@@ -20,7 +20,7 @@ export default function Hero(props) {
     });
   }
 
-  console.log(props.data);
+  // console.log(props.data);
 
   // function formatNumber(number) { di pindahin ke utils
   //   const formatNumbering = new Intl.formatNumber("id-ID");
