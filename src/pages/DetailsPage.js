@@ -23,7 +23,7 @@ class DetailsPage extends Component {
     window.title = "Details Page";
     window.scrollTo(0, 0);
 
-    if (!this.props.page[this.props.match.params.id]) this.props.fetchPage(`${process.env.REACT_APP_HOST}/api/v1/member/detail-page/${this.props.match.params.id}`);
+    if (!this.props.page[this.props.match.params.id]) this.props.fetchPage(`${process.env.REACT_APP_HOST}/api/v1/member//detail-page/${this.props.match.params.id}`, this.props.match.params.id);
   }
 
   render() {
@@ -40,7 +40,7 @@ class DetailsPage extends Component {
       <>
         <Header {...this.props} />
         <PageDetailTitle breadcrumb={breadcrumb} data={page[match.params.id]} />
-        <FeaturedImage data={page[match.params.id].imageUrls} />
+        <FeaturedImage data={page[match.params.id].imageId} />
         <section className="container">
           <div className="row">
             <div className="col-7 pr-5">
@@ -55,7 +55,7 @@ class DetailsPage extends Component {
             </div>
           </div>
         </section>
-        <Categories data={page[match.params.id].categories} />
+        {/* <Categories data={page[match.params.id].activityId} /> */}
         <Testimony data={page[match.params.id].testimonial} />
         <Footer />
       </>
@@ -64,6 +64,6 @@ class DetailsPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  page: state.page.detailPage,
+  page: state.page,
 });
-export default connect(mapStateToProps, { checkoutBooking })(DetailsPage);
+export default connect(mapStateToProps, { checkoutBooking, fetchPage })(DetailsPage);
