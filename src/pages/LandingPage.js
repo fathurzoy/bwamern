@@ -24,7 +24,7 @@ class LandingPage extends Component {
     window.scrollTo(0, 0);
 
     if (!this.props.page.landingPage) {
-      this.props.fetchPage(`${process.env.REACT_APP_HOST}/api/v1/member/landing-page`, "landingPage");
+      this.props.fetchPage(`/landing-page`, "landingPage");
     }
   }
 
@@ -41,7 +41,10 @@ class LandingPage extends Component {
         {/* ...this.props = sintak es6 sprate operator / ketika ada props di class ini dia akan di parsing ke component header */}
         <Header {...this.props}></Header>
         <Hero refMostPicked={this.refMostPicked} data={page.landingPage.hero} />
-        <MostPicked refMostPicked={this.refMostPicked} data={page.landingPage.mostPicked} />
+        <MostPicked
+          refMostPicked={this.refMostPicked}
+          data={page.landingPage.mostPicked}
+        />
         <Categories data={page.landingPage.category} />
         <Testimony data={page.landingPage.testimonial} />
         <Footer />

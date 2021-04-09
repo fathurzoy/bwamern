@@ -24,7 +24,11 @@ class DetailsPage extends Component {
     window.title = "Details Page";
     window.scrollTo(0, 0);
 
-    if (!this.props.page[this.props.match.params.id]) this.props.fetchPage(`${process.env.REACT_APP_HOST}/api/v1/member//detail-page/${this.props.match.params.id}`, this.props.match.params.id);
+    if (!this.props.page[this.props.match.params.id])
+      this.props.fetchPage(
+        `/detail-page/${this.props.match.params.id}`,
+        this.props.match.params.id
+      );
   }
 
   render() {
@@ -51,7 +55,10 @@ class DetailsPage extends Component {
             </div>
             <div className="col-5">
               <Fade bottom>
-                <BookingForm itemDetails={page[match.params.id]} startBooking={this.props.checkoutBooking} />
+                <BookingForm
+                  itemDetails={page[match.params.id]}
+                  startBooking={this.props.checkoutBooking}
+                />
               </Fade>
             </div>
           </div>
@@ -67,4 +74,6 @@ class DetailsPage extends Component {
 const mapStateToProps = (state) => ({
   page: state.page,
 });
-export default connect(mapStateToProps, { checkoutBooking, fetchPage })(DetailsPage);
+export default connect(mapStateToProps, { checkoutBooking, fetchPage })(
+  DetailsPage
+);
