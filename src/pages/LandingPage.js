@@ -24,7 +24,7 @@ class LandingPage extends Component {
     window.scrollTo(0, 0);
 
     if (!this.props.page.landingPage) {
-      this.props.fetchPage(`https://admin-staycation-api.herokuapp.com/api/v1/member/landing-page`, "landingPage");
+      this.props.fetchPage(`${process.env.REACT_APP_HOST}/api/v1/member/landing-page`, "landingPage");
     }
   }
 
@@ -32,16 +32,18 @@ class LandingPage extends Component {
     // console.log(this.props)
 
     const { page } = this.props;
+    console.log(page);
+
+    if (!page.hasOwnProperty("landingPage")) return null;
 
     return (
       <>
         {/* ...this.props = sintak es6 sprate operator / ketika ada props di class ini dia akan di parsing ke component header */}
         <Header {...this.props}></Header>
-
-        <Hero refMostPicked={this.refMostPicked} data={page.hero} />
-        <MostPicked refMostPicked={this.refMostPicked} data={page.mostPicked} />
-        <Categories data={page.categories} />
-        <Testimony data={page.testimonial} />
+        <Hero refMostPicked={this.refMostPicked} data={page.landingPage.hero} />
+        <MostPicked refMostPicked={this.refMostPicked} data={page.landingPage.mostPicked} />
+        <Categories data={page.landingPage.category} />
+        <Testimony data={page.landingPage.testimonial} />
         <Footer />
       </>
     );
@@ -49,7 +51,7 @@ class LandingPage extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  page: state.page ? state.page.landingPage : null,
+  page: state.page,
 });
 
 export default connect(mapStateToProps, { fetchPage })(LandingPage);

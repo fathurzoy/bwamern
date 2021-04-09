@@ -9,7 +9,8 @@ export default function (state = initialState, action) {
         ...state,
         ...action.payload,
       };
+
     default:
-      return;
+      return state;
   }
 }
