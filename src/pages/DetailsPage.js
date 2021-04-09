@@ -16,6 +16,7 @@ import ItemDetails from "json/itemDetails.json";
 
 import { checkoutBooking } from "store/actions/checkout";
 import { fetchPage } from "store/actions/page";
+import Activities from "parts/Activities";
 
 class DetailsPage extends Component {
   componentDidMount() {
@@ -28,7 +29,7 @@ class DetailsPage extends Component {
 
   render() {
     const { page, match } = this.props;
-    console.log(page);
+    // console.log(page);
     if (!page[match.params.id]) return null;
 
     const breadcrumb = [
@@ -55,7 +56,7 @@ class DetailsPage extends Component {
             </div>
           </div>
         </section>
-        {/* <Categories data={page[match.params.id].activityId} /> */}
+        <Activities data={page[match.params.id].activityId} />
         <Testimony data={page[match.params.id].testimonial} />
         <Footer />
       </>
